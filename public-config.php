@@ -10,7 +10,7 @@ $config['site']['ssl'] = 'always';
 
 $config['site']['fancy'] = true;
 
-$config['db']['database'] = getenv('GNUSOCIAL_DSN');
+$config['db']['database'] = getenv('GNUSOCIAL_DATABASE_DSN');
 
 $config['db']['type'] = 'mysql';
 
