@@ -45,3 +45,14 @@ $config['profile']['changenick'] = true; // twitter users are used to being able
 $config['public']['localonly'] = true; // only local users in the public timeline (qvitter always has a timeline for the whole known network)
 addPlugin('StoreRemoteMedia'); // makes remote images appear in the feed
 
+// Twitter Bridge Plugin settings
+$consumer_key    = getenv('GNUSOCIAL_TWITTER_BRIDGE_CONSUMER_KEY');
+$consumer_secret = getenv('GNUSOCIAL_TWITTER_BRIDGE_CONSUMER_SECRET');
+addPlugin(
+    'TwitterBridge',
+    array(
+        'consumer_key'    => $consumer_key,
+        'consumer_secret' => $consumer_secret,
+    )
+);
+
