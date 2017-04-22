@@ -27,8 +27,8 @@ $config['site']['qvitter']['enabledbydefault'] = true;
 $config['site']['qvitter']['defaultbackgroundcolor'] = '#f4f4f4';
 $config['site']['qvitter']['defaultlinkcolor'] = '#0084B4';
 $config['site']['qvitter']['timebetweenpolling'] = 5000;
-$config['site']['qvitter']['urlshortenerapiurl'] = 'http://qttr.at/yourls-api.php'; // if your site is on HTTPS, use url to shortener.php here
-$config['site']['qvitter']['urlshortenersignature'] = 'b6afeec983';
+// $config['site']['qvitter']['urlshortenerapiurl'] = 'http://qttr.at/yourls-api.php'; // if your site is on HTTPS, use url to shortener.php here
+// $config['site']['qvitter']['urlshortenersignature'] = 'b6afeec983';
 $config['site']['qvitter']['sitebackground'] = 'img/vagnsmossen.jpg';
 $config['site']['qvitter']['favicon_path'] = Plugin::staticPath('Qvitter', '').'img/gnusocial-favicons/';
 $config['site']['qvitter']['sprite'] = Plugin::staticPath('Qvitter', '').'img/sprite.png?v=40';
