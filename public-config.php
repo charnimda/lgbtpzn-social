@@ -10,7 +10,7 @@ $config['site']['ssl'] = 'always';
 
 $config['site']['fancy'] = true;
 
-$config['db']['database'] = getenv('GNUSOCIAL_DSN');
+$config['db']['database'] = getenv('GNUSOCIAL_DATABASE_DSN');
 
 $config['db']['type'] = 'mysql';
 
@@ -44,4 +44,15 @@ $config['profile']['delete'] = true; // twitter users are used to being able to 
 $config['profile']['changenick'] = true; // twitter users are used to being able to change their nicknames
 $config['public']['localonly'] = true; // only local users in the public timeline (qvitter always has a timeline for the whole known network)
 addPlugin('StoreRemoteMedia'); // makes remote images appear in the feed
+
+// Twitter Bridge Plugin settings
+$consumer_key    = getenv('GNUSOCIAL_TWITTER_BRIDGE_CONSUMER_KEY');
+$consumer_secret = getenv('GNUSOCIAL_TWITTER_BRIDGE_CONSUMER_SECRET');
+addPlugin(
+    'TwitterBridge',
+    array(
+        'consumer_key'    => $consumer_key,
+        'consumer_secret' => $consumer_secret,
+    )
+);
 

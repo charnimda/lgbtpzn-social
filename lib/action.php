@@ -1181,7 +1181,7 @@ class Action extends HTMLOutputter // lawsuit
                 $this->text(' ');
                 // TRANS: license message in footer.
                 // TRANS: %1$s is the site name, %2$s is a link to the license URL, with a licence name set in configuration.
-                $notice = _('All %1$s content and data are available under the %2$s license.');
+                $notice = '(Except where otherwise specified) ' . _('All %1$s content and data are available under the %2$s license.');
                 $link = sprintf('<a class="license" rel="external license" href="%1$s">%2$s</a>',
                                 htmlspecialchars(common_config('license', 'url')),
                                 htmlspecialchars(common_config('license', 'title')));

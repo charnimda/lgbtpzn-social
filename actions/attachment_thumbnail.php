@@ -62,6 +62,21 @@ class Attachment_thumbnailAction extends AttachmentAction
             common_redirect($e->file->getUrl(), 302);
         }
 
-        common_redirect(File_thumbnail::url($thumbnail->filename), 302);
+        $url = File_thumbnail::url($thumbnail->filename);
+        if (common_logged_in()) {
+            goto ok;
+        }
+        $http_user_agent = $_SERVER['HTTP_USER_AGENT'] ?? 'SecretAgent';
+        $user_agents     = ['GNU social', 'GNUsocial', 'Mastodon', 'Friendica', 'PubSubHubbub'];
+        foreach ($user_agents as $user_agent) {
+            if (false === stripos($http_user_agent, $user_agent)) {
+                continue ;
+            }
+            goto ok;
+        }
+        $url = str_replace('/file/', '/file-blur/', $url);
+
+ok:
+        common_redirect($url, 302);
     }
 }
