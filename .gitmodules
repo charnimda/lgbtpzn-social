@@ -1,0 +1,3 @@
+[submodule "plugins/Qvitter"]
+	path = plugins/Qvitter
+	url = git@github.com:charnimda/Qvitter-LGBTPZN.git

@@ -317,6 +317,21 @@ function main()
     call_user_func("$action_class::run", $args);
 }
 
+$attachments_path = 'file';
+if (!common_logged_in()) {
+    $attachments_path = 'file-blur';
+    $http_user_agent = $_SERVER['HTTP_USER_AGENT'] ?? 'SecretAgent';
+    $user_agents     = ['GNU social', 'GNUsocial', 'Mastodon', 'Friendica', 'PubSubHubbub'];
+    foreach ($user_agents as $user_agent) {
+        if (false === stripos($http_user_agent, $user_agent)) {
+            continue ;
+        }
+        $attachments_path = 'file';
+        break ;
+    }
+}
+header("Attachments-Path: {$attachments_path}");
+
 main();
 
 // XXX: cleanup exit() calls or add an exit handler so

@@ -3082,4 +3082,28 @@ class Notice extends Managed_DataObject
         }
         print "\n";
     }
+
+    protected $_once = false;
+
+    public function orderBy($order = false)
+    {
+        if ($this->_once || common_logged_in()) {
+            goto ok;
+        }
+        $request_uri = $_SERVER['REQUEST_URI'];
+        $paths       = ['/api/statuses/public', '/favorited'];
+        foreach ($paths as $path) {
+            if (0 === stripos($request_uri, $path)) {
+                $cond = <<<SQL
+rendered NOT LIKE '%class="attachment%'
+SQL;
+                $this->whereAdd($cond);
+                break ;
+            }
+        }
+
+ok:
+        $this->_once = true;
+        return parent::orderBy($order);
+    }
 }
