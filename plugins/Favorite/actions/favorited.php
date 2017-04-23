@@ -178,7 +178,7 @@ class FavoritedAction extends Action
             $this->showEmptyList();
         }
 
-        $this->pagination($this->page > 1, $cnt > NOTICES_PER_PAGE,
+        $this->pagination($this->page > 1, $cnt != 0,
                           $this->page, 'favorited');
     }
 }
