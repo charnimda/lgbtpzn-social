@@ -87,7 +87,6 @@ class StoreRemoteMediaPlugin extends Plugin
         }
 
         try {
-            /*
             $http = new HTTPClient();
             common_debug(sprintf('Performing HEAD request for remote file id==%u to avoid unnecessarily downloading too large files. URL: %s', $file->getID(), $remoteUrl));
             $head = $http->head($remoteUrl);
@@ -99,8 +98,6 @@ class StoreRemoteMediaPlugin extends Plugin
 
             $headers = $head->getHeader();
             $filesize = isset($headers['content-length']) ? $headers['content-length'] : null;
-            */
-            $filesize = $file->getSize();
             if (empty($filesize)) {
                 // file size not specified on remote server
                 common_debug(sprintf('%s: Ignoring remote media because we did not get a content length for file id==%u', __CLASS__, $file->getID()));
